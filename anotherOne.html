@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Random code</title>
+</head>
+<body>
+
+<div id="app">
+    <h1> {{ name }} </h1>
+
+    <button @click="name = 'Hello'">change</button>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    var vm1 = new Vue({
+
+        el: '#app',
+        data:{
+            name: 'Vue Instance #1'
+        }
+    });
+
+    vm1.$watch('name', function (hello, vue) {
+        alert('Name changed from ' + vue + ' to ' + hello);
+    });
+
+
+</script>
+
+</body>
+</html>

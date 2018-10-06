@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Random code</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="message = 'This is a new message'">Change Message</button>
+    <button @click="counter++">Increase Counter ({{ counter }})</button>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    var vm1 = new Vue({
+        el:'#app',
+        data:{
+            message: 'Hello World',
+            counter: 1,
+            created: new Date()
+        },
+        beforeCreate: function () {
+            alert('beforeCreate');
+        },
+        created: function () {
+            alert('created');
+        },
+        beforeMount: function () {
+            alert('beforeMount');
+        },
+        mounted: function () {
+            alert('mounted');
+        },
+        beforeUpdate: function () {
+            alert('beforeUpdate');
+        },
+        updated: function () {
+            alert('updated');
+        },
+        beforeDestroy: function () {
+            alert('beforeDestroy');
+        },
+        destroyed: function () {
+            alert('destroyed');
+        },
+    });
+
+    console.log(vm1);
+
+</script>
+
+</body>
+</html>

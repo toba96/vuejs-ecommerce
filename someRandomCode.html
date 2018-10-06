@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Random code</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1> {{ name }} </h1>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm1 = new Vue({
+           el: '#app',
+            data:{
+                name: 'Vue Instance #1'
+            }
+        });
+
+        //proof that in Vue.js the DOM is updated asynchronously
+
+        vm1.name =  'Hello from the other side';
+        //this will return 'vue Instance #1' because that's the initial declaration before nextTick function is
+        //activated in the background
+        alert(vm1.$el.textContent);
+
+        //we can manually activate nextTick function to prove that the DOM is updated upon nextTick's activation
+        //we can use this function to manipulate our code, in some cases it might be needed
+        Vue.nextTick(function () {
+            alert(vm1.$el.textContent);
+        });
+
+    </script>
+
+</body>
+</html>
